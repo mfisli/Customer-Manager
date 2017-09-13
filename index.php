@@ -1,6 +1,15 @@
 <?php include("includes/database.php");?>
 <?php 
-$q = "SELECT DISTINCT *
+$q = "SELECT 
+        c.id,
+        c.password,
+        c.first_name,
+        c.last_name,
+        a.address,
+        a.address2,
+        a.city,
+        a.state,
+        a.zipcode
       FROM customers c
       INNER JOIN customer_addresses a
       ON a.customer = c.id
@@ -29,7 +38,7 @@ $result = $mysqli->query($q) or die($mysqli->error.__LINE__);
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="index.php">Home</a></li>
+                    <li class="active"><a href="index.php">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="add_customer.php">Add Customer</a></li>
                 </ul>
@@ -38,6 +47,9 @@ $result = $mysqli->query($q) or die($mysqli->error.__LINE__);
 	</nav>
 
     <div class="container">
+        <?php if($_GET['msg']){
+            echo '<div class="alert alert-success">'.$_GET['msg'].'</div>';
+        }?>
     	<div class="row marketing">
             <div class="col-lg-12">
               <h2>Customers</h2>
@@ -56,7 +68,7 @@ $result = $mysqli->query($q) or die($mysqli->error.__LINE__);
                         $output .='<td>'.$row['last_name'].', '.$row['first_name'].'</td>';
                         $output .='<td>'.$row['email'].'</td>';
                         $output .='<td>'.$row['address'].' '.$row['city'].' '.$row['state'].'</td>';
-                        $output .='<td><a href="edit_customer.php?id='.$row['id'].'"class="btn btn-default btn-sm">Edit</a></td>';
+                        $output .='<td><a href="edit_customer.php?id='.$row['id'].'"class="btn btn-primary btn-sm">Edit</a></td>';
                         $output .='</tr>';
                         echo $output;
                     }
