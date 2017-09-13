@@ -59,7 +59,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="index.php">Home</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="about.php">About</a></li>
                     <li><a href="add_customer.php">Add Customer</a></li>
                 </ul>
       </div>
