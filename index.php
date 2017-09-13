@@ -2,6 +2,7 @@
 <?php 
 $q = "SELECT 
         c.id,
+        c.email,
         c.password,
         c.first_name,
         c.last_name,
