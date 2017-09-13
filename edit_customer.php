@@ -62,8 +62,8 @@
     }
 
     $msg = "$first_name $last_name updated.";
-    //header("Location:index.php?msg=".urlencode($msg));
-    //exit();
+    header("Location:index.php?msg=".urlencode($msg));
+    exit();
   }
 ?>
 <!DOCTYPE html>
@@ -131,6 +131,7 @@
                       value="<?php echo $zipcode; ?>" >
                       <br/>
                       <input class="btn btn-primary" type="submit" name="submit" id="submit" value="Update"/>
+                      <a href="delete_customer.php?id=<?php echo $id; ?>" class="btn btn-danger">Delete</a>
                   </div>
               </form>
             </div>
